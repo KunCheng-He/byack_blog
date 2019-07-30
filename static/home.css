@@ -1,0 +1,38 @@
+div#carousel-example-generic {
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-bottom: 2em;
+}
+
+div#container {
+    margin: 0 auto;
+}
+
+div.hot-data {
+    text-align: center;
+    margin-top: 3ex;
+}
+
+div.jumbotron {
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+div.row {
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+span.glyphicon-fire {
+    color: #e33838;
+}
+
+div.panel {
+    margin-left: 80px;
+    margin-right: 80px;
+    background-color: #edf0f069;
+}
+
+div.thumbnail {
+    background-color: #f8f9f9;
+}

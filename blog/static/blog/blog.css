@@ -1,0 +1,125 @@
+div.row {
+    margin-top: 15px;
+}
+
+div.panel-heading {
+    color: #fff;
+    background-color: #333;
+}
+
+div.panel {
+    border-color: #ddd;
+}
+
+div.panel.panel-default.big {
+    margin-left: 20px;
+}
+
+div.panel.panel-default.small {
+    margin-right: 20px;
+}
+
+ul.blog-types {
+    list-style-type: none;
+}
+
+div.blog:not(:last-child) {
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #7ec8c0;
+}
+
+div.blog h3 {
+    margin-top: 0.5em;
+}
+
+div.blog {
+    margin-bottom: 0;
+}
+
+ul.blog-info li {
+    display: inline-block;
+    margin-right: 1.5ex;
+    margin-bottom: 0.5ex;
+}
+
+ul.blog-detail-title-info {
+    margin-bottom: 1em;
+}
+
+div.blog-detail-content-info {
+    margin-bottom: 2em;
+}
+
+ul.blog-detail-title-info li {
+    display: inline-block;
+    margin-right: 1em;
+}
+
+li.blog-type-kong {
+    margin-bottom: 3px;
+}
+
+div.paginator {
+    text-align: center;
+}
+
+div.blog-more {
+    margin-top: 1em;
+}
+
+div.comment-area {
+    margin-top: 2em;
+}
+
+h3.comment-area-title {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.4em;
+}
+
+form.form-inline {
+    overflow: hidden;
+}
+
+div.django-ckeditor-widget {
+    width: 100%;
+}
+
+div.comment {
+    border-bottom: 1px dashed #ccc;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+div.reply {
+    margin-left: 2em;
+}
+
+div#reply_content_container {
+    border: 1px solid #d1d1d1;
+    background-color: #f8f8f8;
+    border-bottom: none;
+    overflow: hidden;
+    padding: 1em 1em 0.5em;
+}
+
+p#reply_title {
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 0.5em;
+}
+
+div.like {
+    color: #337ab7;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.5em 0.3em;
+    font-size: 110%;
+}
+
+div.like .active {
+    color: #f22;
+}
+
+div.panel-footer {
+    font-size: 16px;
+}

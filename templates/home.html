@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    byack-笔记|home
+{% endblock%}
+
+{% block header_extends %}
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <script src="http://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+{% endblock %}
+
+{% block nav_home_active %}active{% endblock %}
+
+{% block content %}
+    <!-- 巨幕 -->
+    <div class="jumbotron">
+        <center><h1>欢迎访问　Byack-笔记　</h1></center>
+        <center><h3>还未完善，后续会逐渐优化</h3></center>
+        <br>
+        <br>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <div class="caption">
+                    <span class="glyphicon glyphicon-fire"></span>
+                    <h3>今天热门博客</h3>
+                    <ul>
+                        {% for hot_data in today_hot_data %}
+                            <li><a href="{% url 'blog_detail' hot_data.content_object.pk %}">{{ hot_data.content_object.title }}</a>（{{ hot_data.read_num }}）</li>
+                        {% empty %}
+                            <li>今天暂时没有热门博客</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <div class="caption">
+                    <span class="glyphicon glyphicon-fire"></span>
+                    <h3>昨天热门博客</h3>
+                    <ul>
+                        {% for hot_data in yesterday_hot_data %}
+                            <li><a href="{% url 'blog_detail' hot_data.content_object.pk %}">{{ hot_data.content_object.title }}</a>（{{ hot_data.read_num }}）</li>
+                        {% empty %}
+                            <li>昨天没有热门博客</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <div class="caption">
+                    <span class="glyphicon glyphicon-fire"></span>
+                    <h3>７天热门博客</h3>
+                    <ul>
+                        {% for hot_blog in hot_data_7_blogs %}
+                            <li><a href="{% url 'blog_detail' hot_blog.id %}">{{ hot_blog.title }}</a>（{{ hot_blog.read_num_sum }}）</li>
+                        {% empty %}
+                            <li>７天没有热门博客</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if user.is_staff or user.is_superuser %}
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <!-- 图表容器 DOM -->
+                <div id="container" style="width: 600px;height:400px;"></div>
+            </div>
+        </div>
+    {% endif %}
+    <br>
+
+    <script>
+        // 图表配置
+        var options = {
+            credits: {
+                // enabled:true,                    // 默认值，如果想去掉版权信息，设置为false即可
+                text: 'byack',             // 显示的文字
+                href: 'http://127.0.0.1:8000',      // 链接地址
+                position: {                         // 位置设置 
+                    align: 'left',
+                    x: 520,
+                    verticalAlign: 'bottom',
+                    y: 0
+                },
+                style: {                            // 样式设置
+                    cursor: 'pointer',
+                    color: '#b7d4b7',
+                    fontSize: '15px'
+                }
+            },
+            chart: {
+                type: 'line'                          //指定图表的类型，默认是折线图（line）
+            },
+            title: {
+                text: '前七天阅读量折线图'                 // 标题
+            },
+            xAxis: {
+                categories: {{ dates|safe }}   // x 轴分类
+            },
+            yAxis: {
+                title: {
+                    text: null                // y 轴标题
+                },
+                labels: { 
+                    enabled: false 
+                },
+                gridLineDashStyle: 'Dash',
+            },
+            series: [{                              // 数据列
+                name: '阅读人次',                        // 数据列名
+                data: {{ read_nums }},                    // 数据
+                showInLegend: false
+            }],
+            plotOptions: {
+                line: {
+                    dataLabels: {
+                        enabled: true
+                    }
+                }
+            }
+        };
+        // 图表初始化函数
+        var chart = Highcharts.chart('container', options);
+    </script>
+{% endblock %}

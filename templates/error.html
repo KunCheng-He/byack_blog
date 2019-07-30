@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    byack-笔记|登录失败
+{% endblock%}
+
+{% block nav_home_active %}active{% endblock %}
+
+{% block content %}
+    <h4>{{ message }}</h4>
+    <a href="{{ redirect_to }}">返回页面</a>
+{% endblock %}

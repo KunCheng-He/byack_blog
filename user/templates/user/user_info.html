@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    个人信息
+{% endblock%}
+
+{% block nav_home_active %}active{% endblock %}
+
+{% block content %}
+    <div class="containter">
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1">
+                {% if user.is_authenticated %}
+                    <table class="table table-hover">
+                        <h2 class="text-primary">个人信息</h2>
+                        <br>
+                        <thead>
+                            <tr　class="info">
+                                <th>用户名</th>
+                                <th>昵称</th>
+                                <th>邮箱</th>
+                                <th>密码</th>
+                                <th>最近登录时间</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ user.username }}</td>
+                                <td>
+                                    {{ user.get_nickname }}(<a href="{% url 'change_nickname' %}?from={{ request.get_full_path }}">修改昵称</a>)
+                                </td>
+                                <td>
+                                    {% if user.email %}
+                                        {{ user.email }}
+                                    {% else %}
+                                        未绑定<a href="{% url 'bind_email' %}?from={{ request.get_full_path }}">绑定邮箱</a>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    xxx...xxx(<a href="{% url 'change_password' %}">修改密码</a>）
+                                </td>
+                                <td>
+                                    {{ user.last_login|date:"Y-m-d H:i:s" }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                {% else %}
+                    <span>未登录，跳转到首页...</span>
+                    <script type="text/javascript">
+                        window.location.href = '/';
+                    </script>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

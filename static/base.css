@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin-top: 70px!important;
+    background-color: #f5f7f9;
+}
+
+body div.logo a {
+    font-size: 180%;
+    font-style: oblique;
+}
+
+body div.navbar-header.left {
+    margin-left: 50px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+body div.logo a.ttop {
+    color: #fff;
+}
+
+body ul.ttop a.ttop {
+    color: #fff;
+}
+
+body li.ttop a.ttop {
+    color: #fff;
+}
+
+body ul.dropdown-menu {
+    background-color: #aaaaaa8a;;
+}
+
