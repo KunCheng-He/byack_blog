@@ -83,11 +83,11 @@ def blogs_with_date(request, year, month):
 # 显示具体的博客页面
 def blog_detail(request, blog_pk):
     blog = get_object_or_404(Blog, pk=blog_pk)
-    blog.content = markdown.markdown(blog.content, extensions=[
+    blog.content = markdown.markdown(blog.content.replace("\r\n", '  \n'), extensions=[
         'markdown.extensions.extra',
         'markdown.extensions.codehilite',
         'markdown.extensions.toc',
-    ])
+    ], safe_mode=True,enable_attributes=False)
     read_cookie_key = read_statistics_once_read(request, blog)
 
     context = {}
