@@ -113,11 +113,11 @@ STATICFILES_DIRS = [
 ]
 
 # media配置
-MEDIA_URL = '/media/'
+MEDIA_URL = '/uploads/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 
 # 配置ckeditor
-CKEDITOR_UPLOAD_PATH = 'upload/'
+CKEDITOR_UPLOAD_PATH = 'editor/'
 
 CKEDITOR_CONFIGS = {
     'default': {
