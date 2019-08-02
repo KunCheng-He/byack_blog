@@ -121,18 +121,11 @@ CKEDITOR_UPLOAD_PATH = 'editor/'
 
 CKEDITOR_CONFIGS = {
     'default': {
-        # 编辑器宽度自适应
-        'width': 800,
-        'height': 291,
-        # tab键转换空格数
-        'tabSpaces': 4,
-        # 工具栏风格
-        'toolbar': 'Custom',
-        # 工具栏按钮
+        'toolbar': 'custom',  # 工具栏样式
         'toolbar_Custom': [
             # 编写样式
             ['Styles', 'Format', 'Font', 'FontSize'],
-            # 字体风格
+            # 字体设置
             ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat'],
             # 列表
             ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-',
@@ -145,13 +138,10 @@ CKEDITOR_CONFIGS = {
             # 全屏编写和预览
             ['Maximize', 'ShowBlocks'],
             # 图片,flash,代码块
-            ['Image', 'Flash', 'CodeSnippet', 'Table', 'Horizo​​ntalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'iframe'],
+            ['Image', 'Flash', 'CodeSnippet', 'Table', 'Horizo??????ntalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'iframe'],
         ],
         # 加入插件
-        'extraPlugins': ','.join([
-            'codesnippet', 'uploadimage', 'div',
-            'prism','widget','lineutils',
-        ]),
+        'extraPlugins': ','.join(['codesnippet']),
     },
     'comment_ckeditor': {
         'toolbar': 'custom',  # 工具栏显示样式，指向这个名称，其配置就在下方的列表里
